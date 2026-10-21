@@ -17,8 +17,8 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        spring.json.add.type.headers: false   # потребитель не обязан знать наш класс события
-        max.block.ms: 5000                    # не висеть минуту, если Kafka недоступна
+        spring.json.add.type.headers: false
+        max.block.ms: 5000
 
 app:
   kafka:

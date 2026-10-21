@@ -11,7 +11,6 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/** Тест слоя JPA на встроенной H2 (настройки в src/test/resources/application.yml). */
 @DataJpaTest
 class UserRepositoryIntegrationTest {
 

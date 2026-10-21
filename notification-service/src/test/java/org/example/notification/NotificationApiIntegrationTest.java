@@ -21,10 +21,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-/**
- * Интеграционный тест HTTP API: запрос -> контроллер -> JavaMailSender -> настоящий SMTP (GreenMail в памяти).
- * Проверяем, что письмо реально дошло до почтового сервера с нужным адресом, темой и текстом.
- */
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")

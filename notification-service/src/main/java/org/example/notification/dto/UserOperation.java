@@ -1,6 +1,5 @@
 package org.example.notification.dto;
 
-/** Тип операции + текст письма для неё. */
 public enum UserOperation {
 
     CREATED("Аккаунт создан",

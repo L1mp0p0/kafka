@@ -36,5 +36,4 @@ app:
   kafka:
     topic: user-events
   mail:
-    # адрес отправителя; для Gmail должен совпадать с MAIL_USERNAME
     from: ${MAIL_FROM:${MAIL_USERNAME:noreply@example.com}}

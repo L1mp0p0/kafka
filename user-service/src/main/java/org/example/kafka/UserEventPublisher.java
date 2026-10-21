@@ -9,10 +9,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.event.TransactionPhase;
 import org.springframework.transaction.event.TransactionalEventListener;
 
-/**
- * Отправляет событие в Kafka только ПОСЛЕ успешного коммита транзакции,
- * чтобы не уведомить пользователя о том, что в БД так и не произошло.
- */
 @Component
 public class UserEventPublisher {
 

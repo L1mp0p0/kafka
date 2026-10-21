@@ -29,10 +29,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-/**
- * Сквозной тест: HTTP -> controller -> service -> JPA (H2) -> Kafka (встроенный).
- * Docker не нужен.
- */
 @SpringBootTest
 @AutoConfigureMockMvc
 @EmbeddedKafka(partitions = 1, topics = "user-events",
@@ -66,8 +62,6 @@ class UserApiIntegrationTest {
                 .andReturn().getResponse().getContentAsString();
         return objectMapper.readTree(body).get("id").asLong();
     }
-
-    /** Читает топик с начала и ждёт, пока наберётся нужное число событий для email. */
     private List<JsonNode> awaitEvents(String email, int expected) throws Exception {
         Map<String, Object> props = Map.of(
                 ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, embeddedKafka.getBrokersAsString(),
@@ -149,7 +143,6 @@ class UserApiIntegrationTest {
                         .content(objectMapper.writeValueAsString(new UserRequest("Other", "dup@mail.ru", 30))))
                 .andExpect(status().isConflict());
 
-        // ждём 2 события, но должно прийти только одно (от первого создания)
         assertEquals(1, awaitEvents("dup@mail.ru", 2).size());
     }
 

@@ -1,4 +1,3 @@
-# Конфигурация для тестов: встроенная H2 в режиме PostgreSQL (Docker не нужен)
 spring:
   datasource:
     url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH;DB_CLOSE_DELAY=-1
@@ -10,7 +9,6 @@ spring:
       ddl-auto: create-drop
     open-in-view: false
   kafka:
-    # bootstrap-servers задаёт @EmbeddedKafka (bootstrapServersProperty)
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

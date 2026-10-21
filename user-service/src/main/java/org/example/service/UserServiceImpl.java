@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void delete(Long id) {
-        User user = findOrThrow(id);   // email нужен для события
+        User user = findOrThrow(id);
         userRepository.delete(user);
         eventPublisher.publishEvent(new UserEvent(UserOperation.DELETED, user.getEmail()));
     }

@@ -24,10 +24,6 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * Интеграционный тест всей цепочки: сообщение в Kafka -> @KafkaListener -> EmailService -> SMTP (GreenMail).
- * Kafka встроенный (@EmbeddedKafka), SMTP в памяти (GreenMail), Docker не нужен.
- */
 @SpringBootTest
 @ActiveProfiles("test")
 @EmbeddedKafka(partitions = 1, topics = "user-events",
