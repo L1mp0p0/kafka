@@ -1,0 +1,15 @@
+# Профиль "test": поверх основного application.yml.
+# Почта -> GreenMail на 127.0.0.1:32525, Kafka -> @EmbeddedKafka.
+spring:
+  mail:
+    host: 127.0.0.1
+    port: 32525
+    username:
+    password:
+    properties:
+      mail.smtp.auth: false
+      mail.smtp.starttls.enable: false
+
+app:
+  mail:
+    from: noreply@test.local
